@@ -1,0 +1,31 @@
+{
+  "name": "expo-widgets-example",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "prebuild:ios": "EXPO_NO_CACHE=true EXPO_NO_GIT_STATUS=true expo prebuild -p ios --clean",
+    "prebuild:android": "EXPO_NO_CACHE=true EXPO_NO_GIT_STATUS=true expo prebuild -p android --clean"
+  },
+  "dependencies": {
+    "@bittingz/expo-widgets": "file:../../",
+    "expo": "53.0.17",
+    "expo-dev-client": "~5.2.4",
+    "react": "19.0.0",
+    "react-native": "0.79.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~19.0.10",
+    "fs-extra": "^11.3.0",
+    "typescript": "~5.8.3"
+  },
+  "private": false,
+  "expo": {
+    "autolinking": {
+      "nativeModulesDir": ".."
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# Exclude root-level native module directories to prevent duplicate classes
+# when using the npm package version of the module
+../android/
+../ios/
+../expo-module.config.json
+../src/
+../build/ 
