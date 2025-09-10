@@ -10,9 +10,26 @@ Use v1 packages for expo 49, or v2 for expo 51+.
 
 ## Build Fix for Android
 
-A previous version of this library included the Android native module as a source dependency, which could cause a `Duplicate class...ExpoWidgetsModule...` error during the Android build process. This issue has been resolved by removing the manual source dependency and relying on Expo's autolinking.
+A previous version of this library included the Android native module as a source dependency, which could cause a `Duplicate class...ExpoWidgetsModule...` error during the Android build process. This issue has been resolved by making the inclusion of the native module optional.
 
-If you are upgrading from a previous version, you may need to run `npx expo prebuild --clean` to ensure the fix is applied correctly.
+By default, the plugin no longer copies the native module to prevent build conflicts. If you are upgrading from a previous version and encounter issues, you can restore the old behavior by setting `includeDefaultModule: true` in your plugin configuration.
+
+Example:
+```json
+{
+  "plugins": [
+    ["@bittingz/expo-widgets", {
+      "android": {
+        "src": "./widgets/android",
+        "widgets": ["MyWidget"],
+        "includeDefaultModule": true
+      }
+    }]
+  ]
+}
+```
+
+If you are upgrading, you may also need to run `npx expo prebuild --clean` to ensure the fix is applied correctly.
 
 ## Setup
 
